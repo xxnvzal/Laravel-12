@@ -1,4 +1,4 @@
-@extends('components/layout1')
+@extends('components/layoutp')
 
 @section('main-content')
     <div class="card card-primary">

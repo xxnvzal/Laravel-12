@@ -20,11 +20,11 @@ Route::get('/pasien', function () {
 
 Route::get('/pasien/periksa', function () {
     return view('pasien.periksa');
-});
+})->name('pasien-periksa');
 
 Route::get('/pasien/riwayat', function () {
     return view('pasien.riwayat');
-});
+})->name('pasien-riwayat');
 
 Route::get('/dokter', function () {
     return view('dokter.dashboard');
