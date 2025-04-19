@@ -1,40 +1,64 @@
 @extends('components/layoutd')
 
 @section('main-content')
-    <div class="container">
-        <h2 class="mb-4">Riwayat Pemeriksaan</h2>
-        
-        <!-- Tabel Riwayat Pemeriksaan -->
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Nama Pasien</th>
-                    <th>Dokter</th>
-                    <th>Tanggal Pemeriksaan</th>
-                    <th>Catatan</th>
-                    <th>Biaya</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Contoh data statis, bisa diganti dengan data dinamis -->
-                <tr>
-                    <td>1</td>
-                    <td>Test User</td>
-                    <td>dr. Andi</td>
-                    <td>2025-03-31</td>
-                    <td>Catatan pemeriksaan</td>
-                    <td>Rp. 150.000</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Doe</td>
-                    <td>dr. Budi</td>
-                    <td>2025-04-01</td>
-                    <td>Catatan pemeriksaan</td>
-                    <td>Rp. 200.000</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="container-fluid">
+            <!-- /.col -->
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Periksa</h3>
+
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right"
+                                        placeholder="Search">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>NO</th>
+                                        <th>ID Periksa</th>
+                                        <th>Pasien</th>
+                                        <th>Tanggal Periksa</th>
+                                        <th>Catatan</th>
+                                        <th>Biaya Periksa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($periksas as $periksa)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $periksa->id }}</td>
+                                            <td>{{ $periksa->pasien->nama }}</td>
+                                            <td>{{ $periksa->tgl_periksa }}</td>
+                                            <td>{{ $periksa->catatan }}</td>
+                                            <td>{{ $periksa->biaya_periksa }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- /.row -->
+        </div>
 @endsection
